@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+
+    >
+ <data>
+  <variable
+      name="employee"
+      type="com.example.lianghao.testtwo.Employee"/>
+  <!-- 类别-->
+  <variable
+      name="presenter"
+      type="com.example.lianghao.testtwo.MainActivity.Presenter"/>
+ </data>
+<LinearLayout
+
+    android:id="@+id/activity_main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   android:orientation="vertical"
+    tools:context="com.example.lianghao.testtwo.MainActivity"
+   >
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onTextChanged= "@{presenter.onTextChanged}"
+        android:hint="shujuone"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="@{presenter.onClick}"
+        android:text="@{employee.firstName}"
+        />
+ <!-- ui /事件绑定-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+         android:onClick="@{() -> presenter.onClickListennerBinding(employee)}"
+        android:text="@{employee.lastName}"
+        />
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="按钮一"
+        />
+
+
+</LinearLayout>
+</layout>
